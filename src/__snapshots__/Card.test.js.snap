@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cards component renders the UI as expected with Snapshot 1`] = `
+<div
+  className="Card"
+>
+  <button
+    type="button"
+  >
+    delete
+  </button>
+  <h3>
+    First list
+  </h3>
+  <p>
+    Some Content for Testing
+  </p>
+</div>
+`;
