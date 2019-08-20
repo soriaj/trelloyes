@@ -3,9 +3,6 @@ import List from './List';
 import './App.css';
 
 class App extends React.Component{
-  constructor(props){
-    super(props)
-  }
   state = {
     lists: [
       {
@@ -46,10 +43,35 @@ class App extends React.Component{
     },
   }
   handleDeleteItem = (card) => {
-    console.log(card.id)
     const { lists } = this.state
-    const newCardIds = lists.map(cur => cur.cardIds.filter(ids => ids !== card.id))
-    console.log(newCardIds)
+    const newCardIds = lists.map(cur => {
+      cur.cardIds = cur.cardIds.filter(ids => ids !== card.id)
+      return cur
+    })
+    this.setState({
+      lists: newCardIds
+    })
+  }
+  handleAddItem = (listId) => {
+    const { lists } = this.state
+    const { allCards } = this.state
+    const id = Math.random().toString(36).substring(2, 4) + Math.random().toString(36).substring(2, 4);
+    const randomCardData = {
+      id,
+      title: `Random Card ${id}`,
+      content: 'lorem ipsum'
+    }
+    const addListCardIds = lists.map(cur => {
+      if(cur.id === listId){
+        cur.cardIds.push(id)
+      }
+      return cur
+    })
+    const newCard = {[id]: randomCardData}
+    this.setState({
+      lists: addListCardIds,
+      allCards: {...allCards, ...newCard}
+    })
   }
   render(){
     const { lists } = this.state
@@ -63,9 +85,11 @@ class App extends React.Component{
           {lists.map(cur => 
           <List
             key={cur.id}
+            listId={cur.id}
             header={cur.header}
             cards={cur.cardIds.map(id => allCards[id])}
             onDeleteItem={this.handleDeleteItem}
+            onAddItem={this.handleAddItem}
           />
           )}
         </div>

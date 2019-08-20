@@ -2,9 +2,6 @@ import React from 'react';
 import './Card.css'
 
 class Card extends React.Component{
-   constructor(props) {
-      super(props);
-   }
    render(){
       const { title } = this.props
       const { content } = this.props

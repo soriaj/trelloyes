@@ -3,9 +3,6 @@ import Card from './Card'
 import './List.css'
 
 class List extends React.Component{
-   constructor(props){
-      super(props)
-   }
    render(){
       const { header } = this.props
       const { cards } = this.props
@@ -24,7 +21,11 @@ class List extends React.Component{
                      onDeleteItem={this.props.onDeleteItem}
                   />
                )}
-               <button type='button' className='List-add-button'>
+               <button 
+                  type='button' 
+                  className='List-add-button'
+                  onClick={() => this.props.onAddItem(this.props.listId)}
+                  >
                   +Add More Stuff
                </button>
             </div>
