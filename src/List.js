@@ -18,9 +18,10 @@ class List extends React.Component{
                {cards.map(cur => 
                   <Card 
                      key={cur.id}
+                     cardId={cur}
                      title={cur.title}
                      content={cur.content}
-                     onDeleteItem={this.props.onDeleteItem.bind(cur.id)}
+                     onDeleteItem={this.props.onDeleteItem}
                   />
                )}
                <button type='button' className='List-add-button'>

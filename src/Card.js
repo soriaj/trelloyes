@@ -11,7 +11,7 @@ class Card extends React.Component{
       return(
          <div className='Card'>
             <button 
-               onClick={() => this.props.onDeleteItem(title)}
+               onClick={() => this.props.onDeleteItem(this.props.cardId)}
                type='button'>
                delete
                </button>

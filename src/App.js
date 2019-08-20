@@ -45,8 +45,11 @@ class App extends React.Component{
       'm': { id: 'm', title: 'Thirteenth card', content: 'lorem ipsum' },
     },
   }
-  handleDeleteItem = (title) => {
-    console.log(title)
+  handleDeleteItem = (card) => {
+    console.log(card.id)
+    const { lists } = this.state
+    const newCardIds = lists.map(cur => cur.cardIds.filter(ids => ids !== card.id))
+    console.log(newCardIds)
   }
   render(){
     const { lists } = this.state
