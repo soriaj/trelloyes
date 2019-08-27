@@ -23,8 +23,8 @@ describe('Lists component', () => {
       ReactDOM.unmountComponentAtNode(div);
    });
 
-   it('renders the UI as expected with Snapshot', () => {
-		const tree = TestRenderer.create(<List header={myList.header} cards={myTestCards} />).toJSON();
-		expect(tree).toMatchSnapshot();
-	});
+   // it('renders the UI as expected with Snapshot', () => {
+	// 	const tree = TestRenderer.create(<List header={myList.header} cards={myTestCards} />).toJSON();
+	// 	expect(tree).toMatchSnapshot();
+	// });
 });
